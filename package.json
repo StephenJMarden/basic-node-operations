@@ -1,0 +1,14 @@
+{
+  "name": "basic-node-operations",
+  "version": "1.0.0",
+  "description": "Basic bash commands in node",
+  "main": "bash.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "bash"
+  ],
+  "author": "Stephen Marden",
+  "license": "ISC"
+}
