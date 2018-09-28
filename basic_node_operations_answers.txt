@@ -1,0 +1,29 @@
+#### Questions
+
+1.
+    a. sort: The output contains all the lines in command.js in alphabetical order. Each line is read into memory and organized by an alphabetical sorting algorithm.
+    b. wc: The output of WC is the line count, followed by the word count, followed by the byte size, followed by the name of the file. The file is read into memory and
+        split by line and counted, then split by word and counted, and then the size is calculated by the system and displayed along with the name of the file the command was
+        enacted on.
+    c. uniq: The output of uniq is the entire contents of the file, minus any adjacent duplicated lines. Each line would be read into memory and compared to adjacent lines
+        to test whether or not they contain the same characters.
+
+2. `echo testing testing testing | wc`
+    The command `echo testing testing testing` should output the string `testing testing testing`, when this output is piped into `wc`, `wc` will count the number of lines (1), words (3),
+    and the byte size (24) of the output of echo.
+
+6.
+    [[[[[[[[Runnable version with example in reverse-string.js]]]]]]]]
+
+    `
+        function reverseString(string) {
+            let words = string.split(' ');
+            let reversedWords = [];
+            words.forEach((word) => {
+                let temp = [...word];
+                temp.reverse();
+                reversedWords.push(temp.join(''));
+            });
+            return reversedWords.join(' ');
+        }
+    `

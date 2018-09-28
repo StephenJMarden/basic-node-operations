@@ -25,6 +25,14 @@ function evaluateCmd(userInput) {
         case "uniq":
             commandLibrary.uniq(userInputArray.slice(1));
             break;
+        case "head":
+            commandLibrary.head(userInputArray.slice(1));
+            break;
+        case "tail":
+            commandLibrary.tail(userInputArray.slice(1));
+            break;
+        default:
+            console.log('Error: Command not found');
     }
 }
 
@@ -72,6 +80,38 @@ const commandLibrary = {
             lines = lines.sort().filter((line) => line != '\r');
             let unique = [...new Set(lines)];
             done([...unique].join('\n'));
+        });
+    },
+    "head": function(fullPath) {
+        const fileName = fullPath[0];
+        fs.readFile(fileName, (err, data) => {
+            if(err) console.log(err);
+
+            data = data.toString().trim();
+            let lines = data.split('\n');
+            let head = [];
+            for(let i = 0; i < 11; i++) {
+                head.push(lines[i]);
+            }
+            done(head.join('\n'));
+        });
+    },
+    "tail": function(fullPath) {
+        const fileName = fullPath[0];
+        fs.readFile(fileName, (err, data) => {
+            if(err) console.log(err);
+
+            data = data.toString().trim();
+            let lines = data.split('\n');
+            let tail = [];
+            if(lines.length > 11) {
+                for(let i = lines.length - 11; i < lines.length; i++) {
+                    tail.push(lines[i]);
+                }
+            } else {
+                tail = lines;
+            }
+            done(tail.join('\n'));
         });
     }
 };
